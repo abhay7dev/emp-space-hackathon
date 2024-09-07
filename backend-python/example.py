@@ -1,4 +1,5 @@
 from openai import OpenAI
+
 def run(para):
     client = OpenAI(api_key="sk-UfkCimKnd9lWjo-B7CtfiWWKSPEUeJvjQULuvJjSpwT3BlbkFJLAGZjP3fPX51LR1JmJl2uhrwm2lT2I_K3W1tchnpEA")
     water_completion = client.chat.completions.create(
@@ -8,10 +9,11 @@ def run(para):
             {"role": "user",
                 "content": "Output a habitation guide based on the following 7 inputs from the system content,\
                     1. water availability, 2. atmospheric conditions,\
-                        3.temperature range, 4.geological activity, 5.magnetic field, star stability,\
-                            orbital stability with. use the score from 0-3 by the weight in order and give explanation of survivability and how to survive in a paragraph format\
+                        3.temperature range, 4.geological activity, 5.magnetic field, 6.star stability,\
+                            7.orbital stability with. use the score from 0-3 by the weight in order and give explanation of survivability and how to survive in a paragraph format\
                             parse the numbers in corresponding order. for example, the first number inputted is the water availility score, and the 4th input system would be the geological activity score\
-                                explanations of scores are defined as following\
+                                explanations of scores are defined as following \
+                                    if the value is -1 disregard the category and make sure to mention the summary may be less accuracy due to the missing data \
                                 water availability: 0, no water or potential; 1, solid or water vapor; 2, limited liquid water; 3, abundant liquid water\
                                 atmospheric conditions: 0, no atmosphere or harmful gas; 1, thin atmosphere; 2, good atmosphere but not earthlike; 3, earthlike atmosphere\
                                 'Temperature Range': 0, Extreme temperatures, uninhabitable; 1, Marginally habitable with significant temperature fluctuations; 2, Generally suitable but with some temperature variations; 3, Optimal, stable temperature range \
