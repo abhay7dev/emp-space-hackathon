@@ -1,7 +1,10 @@
 from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def run(para):
-    client = OpenAI(api_key="sk-UfkCimKnd9lWjo-B7CtfiWWKSPEUeJvjQULuvJjSpwT3BlbkFJLAGZjP3fPX51LR1JmJl2uhrwm2lT2I_K3W1tchnpEA")
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     water_completion = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
