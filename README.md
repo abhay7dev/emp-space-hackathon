@@ -22,11 +22,11 @@ npm run start
 Running from POSIX-Compliant shell
 ```bash
 cd backend-python
-py -m venv env
-./env/Scripts/activate
+python -m venv env
+chmod +x ./env/bin/activate ./env/bin/pip
+./env/bin/activate
 
-./env/Scripts/pip3 install openai
-./env/Scripts/pip3 install python-dotenv
+./env/bin/pip install openai python-dotenv
 
 cd ..
 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module"></script>
+    <title>TerraTest</title>
+</head>
+<body>
+    <h1>TerraTest</h1>
+    <h2>Find out whether or not you can live on a planet!</h2>
+    <h3>Pick a planet from within our solar system down below, or input your own data about a planet of your choice!</h3>
+    
+    <form action="/get-planet-score" method="POST">
+        <div class="slidecontainer">
+            <label for="water-avail">Water Availability:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="water-avail" id="water-avail">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="water-ignore" id="water-ignore">
+            <p id="water-desc">Water Score: 0 - No water available</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="atmo">Atmosphere Conditions:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="atmo" id="atmo">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="atmo-ignore" id="atmo-ignore">
+            <p id="atmo-desc">Atmosphere Score: 0 - No Atmosphere or toxic</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="temp-range">Temperature Range:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="temp-range" id="temp-range">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="temp-ignore" id="temp-ignore">
+            <p id="temp-desc">Temperature Score: 0 - Extreme cold or heat (200+°C or -50°C and below)</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="geo-activity">Geological Activity:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="geo-activity" id="geo-activity">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="geo-ignore" id="geo-ignore">
+            <p id="geo-desc">Geological Score: 0 - No geological activity</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="mag-field">Magnetic Field:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="mag-field" id="mag-field">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="mag-field-ignore" id="mag-field-ignore">
+            <p id="field-desc">Magnetic Score: 0 - No magnetic field</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="star-stabl">Star Stability:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="star-stabl" id="star-stabl">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="star-stabl-ignore" id="star-stabl-ignore">
+            <p id="star-desc">Star Score: 0 - Unstable star</p>
+        </div>
+        <div class="slidecontainer">
+            <label for="orbit-stabl">Orbit Stability:</label>
+            <input type="range" min="0" max="3" value="0" class="slider" name="orbit-stabl" id="orbit-stabl">
+            <label for="water-avail">Data Not Available: </label>
+            <input type="checkbox" name="orbit-stabl-ignore" id="orbit-stabl-ignore">
+            <p id="orbit-desc">Orbit Score: 0 - Unstable orbit</p>
+        </div>
+        <button type="submit" id="submit">SUBMIT</button>
+    </form>
+    <p id="loading-text"></p>
+</body>
+</html>
