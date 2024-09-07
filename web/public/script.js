@@ -17,10 +17,10 @@ const fields = {
         disabler: document.getElementById("atmo-ignore"),
         title: "Atmosphere Score",
         descs: {
-            zero:"No Atmosphere or toxic",
-            one: "",
-            two: "",
-            three: "",
+            zero:"No atmosphere or toxic to life",
+            one: "Thin atmosphere lacking pressure or composition",
+            two: "Atmosphere present but not Earthlike",
+            three: "Earthlike Atmosphere",
         },
     },
     "temp": {
@@ -30,9 +30,9 @@ const fields = {
         title: "Temperature Score",
         descs: {
             zero:"Extreme cold or heat (200+°C or -50°C and below)",
-            one: "",
-            two: "",
-            three: "",
+            one: "Very high heat or cold (100°C to 200°C and -50°C to -25°C)",
+            two: "Marginally suitable temperature (50°C to 100°C and 0°C to -25°C",
+            three: "Optimal temperature (0°C to 50°C)",
         },
     },
     "geo": {
@@ -42,9 +42,9 @@ const fields = {
         title: "Geological Score",
         descs: {
             zero:"No geological activity",
-            one: "",
-            two: "",
-            three: "",
+            one: "Low geological activity",
+            two: "Moderate geological activity",
+            three: "High geological activity",
         },
     },
     "mag": {
@@ -54,9 +54,9 @@ const fields = {
         title: "Magnetic Score",
         descs: {
             zero:"No magnetic field",
-            one: "",
-            two: "",
-            three: "",
+            one: "Low strength magnetic field",
+            two: "Moderate strength magnetic field",
+            three: "Strong magnetic field",
         },
     },
     "star": {
@@ -65,10 +65,10 @@ const fields = {
         disabler: document.getElementById("star-stabl-ignore"),
         title: "Star Score",
         descs: {
-            zero:"Unstable star",
-            one: "",
-            two: "",
-            three: "",
+            zero:"Highly variable or end-of-life star",
+            one: "Unstable star with significance variance",
+            two: "Stable with slight variance (may be slight off main sequence)",
+            three: "Main sequence star with stable output",
         },
     },
     "orbit": {
@@ -77,10 +77,10 @@ const fields = {
         disabler: document.getElementById("orbit-stabl-ignore"),
         title: "Orbit Score",
         descs: {
-            zero:"Unstable orbit",
-            one: "",
-            two: "",
-            three: "",
+            zero:"Highly variable and unstable orbit",
+            one: "Variable and eccentric orbit",
+            two: "Elliptical but stable orbit",
+            three: "Circular orbit",
         },
     }
 }
