@@ -13,20 +13,29 @@ def runAI(para):
         messages=[
             {"role": "user", "content": para},
             {"role": "user",
-                "content": """ Output a habitation guide based on the following 7 inputs from the system content,
-                    1. water availability, 2. atmospheric conditions,
-                        3.temperature range, 4.geological activity, 5.magnetic field, 6.star stability, 
-                            7.orbital stability with. use the score from 0-3 by the weight in order and give explanation of survivability and how to survive in a paragraph format
-                            parse the numbers in corresponding order. for example, the first number inputted is the water availility score, and the 4th input system would be the geological activity score
-                                explanations of scores are defined as following
-                                    if the value is -1 disregard the category and make sure to mention the summary may be less accuracy due to the missing data
-                                water availability: 0, no water or potential; 1, solid or water vapor; 2, limited liquid water; 3, abundant liquid water
-                                atmospheric conditions: 0, no atmosphere or harmful gas; 1, thin atmosphere; 2, good atmosphere but not earthlike; 3, earthlike atmosphere
-                                'Temperature Range': 0, Extreme temperatures, uninhabitable; 1, Marginally habitable with significant temperature fluctuations; 2, Generally suitable but with some temperature variations; 3, Optimal, stable temperature range
-                                'Geological Activity': 0, No geological activity, stagnant surface; 1, Minimal geological activity, limited surface dynamics; 2, Moderate geological activity, some surface renewal; 3, High geological activity, dynamic surface with nutrient recycling
-                                'Magnetic Field': 0, No magnetic field, no protection from radiation; 1, Weak magnetic field, limited protection; 2, Moderate magnetic field, partial protection; 3, Strong magnetic field, robust protection from radiation
-                                'Star Stability': 0, Highly unstable star with severe variability; 1, Unstable star with significant variations; 2, Stable star with minor luminosity fluctuations; 3, Stable star with optimal luminosity and energy output
-                                Orbital Stability': 0, Highly eccentric or unstable orbit, extreme temperature variations; 1, Highly eccentric orbit with significant temperature fluctuations; 2, Stable orbit with minor temperature variations; 3, Circular orbit within the habitable zone with stable conditions  """}
+                "content": """
+                Output a habitation guide based on the following 7 inputs from the previous prompt,
+                Argument 1: Water Availability
+                Argument 2: Atmospheric Condtions
+                Argument 3: Temperature Range
+                Argument 4: Geological Activity
+                Argument 5: Magnetic Field
+                Argument 6: Star Stability
+                Argument 7: Orbital Stability
+                Use the score from 0-3 by the weight in order and give explanation of survivability and how to survive in a paragraph format
+                Parse the arguments in accordance with the above list.
+                For example, the first number inputted is the water availability score, and the fourth input is the geological activity score.
+                Explanations of scores are defined as following:
+                    If the value is -1 disregard the category and make sure to mention the summary may be less accuracy due to the missing data.
+                        'Water availability':       0: No water available; 1: Potential for water; 2: Water in non-liquid form; 3: Liquid water available
+                        'Atmospheric conditions':   0: No atmosphere or toxic to life; 1: Thin atmosphere lacking pressure or composition; 2: Atmosphere present but not Earthlike; 3: Earthlike Atmosphere 
+                        'Temperature Range':        0: Extreme cold or heat (200+°C or -50°C and below); 1: Very high heat or cold (100°C to 200°C and -50°C to -25°C); 2: Marginally suitable temperature (50°C to 100°C and 0°C to -25°C; 3: Optimal temperature (0°C to 50°C)
+                        'Geological Activity':      0: No geological activity; 1: Low geological activity; 2: Moderate geological activity; 3: High geological activity
+                        'Magnetic Field':           0: No magnetic field; 1: Low strength magnetic field; 2: Moderate strength magnetic field; 3: Strong magnetic field
+                        'Star Stability':           0: Highly variable or end-of-life star; 1: Unstable star with significance variance; 2: Stable with slight variance (may be slight off main sequence); 3: Main sequence star with stable output
+                        'Orbital Stability':        0: Highly variable and unstable orbit; 1: Variable and eccentric orbit; 2: Elliptical but stable orbit; 3: Near-Circular orbit
+                Output a 200-250 word paragraph
+                """}
         ],
     )
     return completion.choices[0].message
@@ -47,13 +56,13 @@ parser.add_argument("orbital_stab", type=int, help="The seventh argument passed 
 args = parser.parse_args()
 
 # create the parameters for the GPT prompt
-str1 = str(args.water_avail)
-str2 = str(args.atmosphere)
-str3 = str(args.temp_range)
-str4 = str(args.geo_activity)
-str5 = str(args.magnetic_field)
-str6 = str(args.star_stab)
-str7 = str(args.orbital_stab)
+str1 = str(args.water_avail) + " - Water Availability"
+str2 = str(args.atmosphere) + " - Atmospheric Condtions"
+str3 = str(args.temp_range) + " - Temperature Range"
+str4 = str(args.geo_activity) + " - Geological Activity"
+str5 = str(args.magnetic_field) + " - Magnetic Field"
+str6 = str(args.star_stab) + " - Star Stability"
+str7 = str(args.orbital_stab) + " - Orbital Stability"
 para = str1 + " " + str2 + " " + str3 + " " + str4 + " " + str5 + " " + str6 + " " + str7
 strats = runAI(para)
 

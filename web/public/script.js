@@ -80,7 +80,7 @@ const fields = {
             zero:"Highly variable and unstable orbit",
             one: "Variable and eccentric orbit",
             two: "Elliptical but stable orbit",
-            three: "Circular orbit",
+            three: "Near-Circular orbit",
         },
     }
 }
