@@ -8,61 +8,84 @@
     <title>TerraTest</title>
 </head>
 <body>
-    <h1>TerraTest</h1>
+    <div class="bg-image"></div>
+    <h1>TERRA<span style="color:#00bf63">TEST</span></h1>
     <h2>Find out whether or not you can live on a planet!</h2>
     <h3>Pick a planet from within our solar system down below, or input your own data about a planet of your choice!</h3>
     
-    <form action="/get-planet-score" method="POST">
+    <form action="/get-planet-score" method="POST" class="form">
         <div class="slidecontainer">
-            <label for="water-avail">Water Availability:</label>
+            <br>
+            <b><label for="water-avail"><span style="font-size: 2rem">Water <span style="color:#00bf63">Availability</span></span>:</label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="water-avail" id="water-avail">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="water-ignore" id="water-ignore">
             <p id="water-desc">Water Score: 0 - No water available</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="atmo">Atmosphere Conditions:</label>
+            <b><label for="atmo"><span style="font-size: 2rem">Atmosphere <span style="color:#00bf63">Conditions</span>:</span></label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="atmo" id="atmo">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="atmo-ignore" id="atmo-ignore">
             <p id="atmo-desc">Atmosphere Score: 0 - No Atmosphere or toxic</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="temp-range">Temperature Range:</label>
+            <b><label for="temp-range"><span style="font-size: 2rem">Temperature <span style="color:#00bf63">Range</span></spa>:</label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="temp-range" id="temp-range">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="temp-ignore" id="temp-ignore">
             <p id="temp-desc">Temperature Score: 0 - Extreme cold or heat (200+°C or -50°C and below)</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="geo-activity">Geological Activity:</label>
+            <b><label for="geo-activity"><span style="font-size: 2rem">Geological <span style="color:#00bf63">Activity</span>:</span></label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="geo-activity" id="geo-activity">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="geo-ignore" id="geo-ignore">
             <p id="geo-desc">Geological Score: 0 - No geological activity</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="mag-field">Magnetic Field:</label>
+            <b><label for="mag-field"><span style="font-size: 2rem">Magnetic <span style="color:#00bf63">Field</span>:</span></label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="mag-field" id="mag-field">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="mag-field-ignore" id="mag-field-ignore">
             <p id="field-desc">Magnetic Score: 0 - No magnetic field</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="star-stabl">Star Stability:</label>
+            <b><label for="star-stabl"><span style="font-size: 2rem">Star <span style="color:#00bf63">Stability</span>:</span></label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="star-stabl" id="star-stabl">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="star-stabl-ignore" id="star-stabl-ignore">
             <p id="star-desc">Star Score: 0 - Unstable star</p>
+            <br>
         </div>
         <div class="slidecontainer">
-            <label for="orbit-stabl">Orbit Stability:</label>
+            <b><label for="orbit-stabl"><span style="font-size: 2rem">Orbit <span style="color:#00bf63">Stability</span>:</span></label></b>
+            <br>
             <input type="range" min="0" max="3" value="0" class="slider" name="orbit-stabl" id="orbit-stabl">
+            <br>
             <label for="water-avail">Data Not Available: </label>
             <input type="checkbox" name="orbit-stabl-ignore" id="orbit-stabl-ignore">
             <p id="orbit-desc">Orbit Score: 0 - Unstable orbit</p>
+            <br>
         </div>
-        <button type="submit" id="submit">SUBMIT</button>
+        <button type="submit" id="submit" class="submit">SUBMIT</button>
     </form>
     <p id="loading-text"></p>
 </body>
