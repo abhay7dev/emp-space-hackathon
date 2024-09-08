@@ -114,7 +114,7 @@ function getDescription(val, descs) {
 let submitted = false;
 
 document.getElementById("submit").addEventListener("click", (e) => {
-    document.getElementById("loading-text").innerText = "Loading! Might take a little bit...";
+    // document.getElementById("loading-text").innerText = "Loading! Might take a little bit...";
     // if(!submitted) {
     //     e.preventDefault();
     //     for(const key of Object.keys(fields)) {

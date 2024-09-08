@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="info.css">
     <title>TerraTest</title>
 </head>
 <body>
-    <h1>TerraTest</h1>
+    <h1>TERRA<span style="color:#00bf63">TEST</span></h1>
     <h2>Find out a planet's survivability score! - <a href="/">Test a new planet</a></h2>
-    <div>
+    <div class="results">
         <h3>Survivability score: <%= output.survivability %></h3>
-        <p>
+        <p class="chatgpt-output">
             <%- output.final %>
         </p>
     </div>
