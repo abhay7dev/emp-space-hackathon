@@ -1,5 +1,7 @@
 # TerraTest
 
+Planet Survivability Testing
+
 ## Building and Running
 
 Running from powershell:

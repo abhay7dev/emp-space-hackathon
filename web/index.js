@@ -24,23 +24,13 @@ const callPyProcess = async (res, args) => {
             }
             loops++;
         }
-        const pic = await getPic();
-        res.render("info", { output: { survivability: survivability, final: marked.parse(final) }, pic });
+        res.render("info", { output: { survivability: survivability, final: marked.parse(final) } });
     });
 
     pythProcess.stderr.on("data", async (dat) => {
         const pic = await getPic();
         res.render("info", { output: "Error", pic });
     });
-}
-
-const getPic = async() => {
-    try {
-        const val = (await (await fetch("https://api.nasa.gov/planetary/apod?api_key=" + nasa_api_key)).json());
-        return val.hdurl;
-    } catch(err) {
-        return "";
-    }
 }
 
 app.set("view engine", "ejs");
@@ -61,7 +51,7 @@ app.post("/get-planet-score", async (req, res) => {
         req.body["star-stabl-ignore"] == "on" ? "-1" : req.body["star-stabl"],
         req.body["orbit-stabl-ignore"] == "on" ? "-1" : req.body["orbit-stabl"],
     ];
-    console.log(vals)
+    //console.log(vals)
     await callPyProcess(res, vals);
 });
 
