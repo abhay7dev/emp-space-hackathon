@@ -3,9 +3,10 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from os import getenv
 
-
+#so we can load API key
 load_dotenv()
 
+#method holds the prompt for OpenAI 
 def runAI(para):
     client = OpenAI(api_key=getenv('OPENAI_API_KEY'))
     completion = client.chat.completions.create(
@@ -44,6 +45,7 @@ def runAI(para):
 parser = argparse.ArgumentParser(description="Process some arguments.")
 
 #Parse the seven main factors
+#adds arguments so backend knows to receive seven integer arguments
 parser.add_argument("water_avail", type=int, help="The first argument passed from the command line")
 parser.add_argument("atmosphere", type=int, help="The second argument passed from the command line")
 parser.add_argument("temp_range", type=int, help="The third argument passed from the command line")
@@ -56,6 +58,7 @@ parser.add_argument("orbital_stab", type=int, help="The seventh argument passed 
 args = parser.parse_args()
 
 # create the parameters for the GPT prompt
+# convert to string and add a label to make it clearer for AI to understand
 str1 = str(args.water_avail) + " - Water Availability"
 str2 = str(args.atmosphere) + " - Atmospheric Condtions"
 str3 = str(args.temp_range) + " - Temperature Range"
@@ -64,18 +67,10 @@ str5 = str(args.magnetic_field) + " - Magnetic Field"
 str6 = str(args.star_stab) + " - Star Stability"
 str7 = str(args.orbital_stab) + " - Orbital Stability"
 para = str1 + " " + str2 + " " + str3 + " " + str4 + " " + str5 + " " + str6 + " " + str7
+#calls the prompt
 strats = runAI(para)
 
-#Print out the factor scores
-# print(f"Received water availability: {args.water_avail}")
-# print(f"Received atmosphere: {args.atmosphere}")
-# print(f"Received temperature range: {args.temp_range}")
-# print(f"Received geological activity: {args.geo_activity}")
-# print(f"Received magnetic field: {args.magnetic_field}")
-# print(f"Received star stability: {args.star_stab}")
-# print(f"Received orbital stability: {args.orbital_Stab}")
-
-factors_entered = 7
+#weight variables just to make changing easier
 water_weight = 50
 atmos_weight = 50
 temp_weight = 30
@@ -83,20 +78,14 @@ geo_weight = 10
 magnet_weight = 20
 star_weight = 20
 orbit_weight = 20
+#total weight
 total_weight = water_weight + atmos_weight + temp_weight + geo_weight + magnet_weight + star_weight + orbit_weight
 
-
-for arg_name in vars(args):
-    value = getattr(args, arg_name)
-    #print(f"{arg_name}: {value}")   
-    #Check if the value is -1
-    # if value == -1 or value == '-1':
-    #     print(f'N/A found for {arg_name}')
-    #     factors_entered -= 1
-        
-# calculate total weight (used when user doesn't input data for all fields)
-# else statement adds to the sum when the data does exist
+# if the argument value is -1, that means user selected N/A, so adjust total weight accordingly    
 sum = 0
+# for example, if water is -1, then subtract water's relative weight from total weight
+# otherwise, add score * weight to sum
+# repeat for each factor
 if args.water_avail == -1:
     total_weight -= water_weight
 else:
@@ -132,9 +121,11 @@ if args.orbital_stab == -1:
 else:
     sum += args.orbital_stab * orbit_weight
     
-
+# calculate total possible score after figuring out new weight
 total_score = total_weight * 3
 
+# calculate survivability index
 survivability_index = sum/total_score * 100
+# print index and print prompt content so frontend can access it
 print(float(f"{survivability_index:.2f}"))
 print(strats.content)
