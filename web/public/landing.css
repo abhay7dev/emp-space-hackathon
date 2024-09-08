@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     margin: 0;
@@ -13,28 +13,51 @@
     font-size: 15rem;
 }
 
+#title > span {
+    color: #00bf63;
+}
+
 #desc {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 10;
-    font-style: normal;  
-    font-size: 2rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    letter-spacing: 0.2rem;
+}
+
+h2.link {
+    margin-top: 10rem;
+    /* color: black; */
+    background: linear-gradient(90deg, #c0bdca25 1%, #c0bdca5d 94%); 
+    border-radius: 1rem;
+    padding: 0.5rem;
+    transition: all 0.5s;
+}
+
+h2.link > a {
+    color: #00bf63;
+    padding: 0;
+    transition: all 0.5s;
+}
+
+h2.link:hover {
+    box-shadow: inset 0px 0px 40px 40px #c0bdca5d;
+}
+
+
+h2.link:hover > a {
+    font-size: larger;
+    color: rgb(1, 49, 26);
 }
 
 #desc a {
     text-decoration: none;
-    transition: all 0.2s;
-    color: #00bf63;
-    border-bottom: 2px solid transparent;
 }
 
-#desc a:hover {
-    text-shadow: 0 0 2px#05d470;
-    border-bottom: 1px solid #05d470;
-}
 
 html, body {
     background: rgb(53,53,53);
-    background: linear-gradient(90deg, rgba(53,53,53,1) 30%, rgba(0,0,0,1) 100%);
+    /* background: linear-gradient(90deg, rgba(53,53,53,1) 30%, rgba(0,0,0,1) 100%); */
+    background-image: url("bg.png");
     color: white;
 }
 
@@ -49,22 +72,18 @@ html, body {
     text-align: center;
 }
 
-.img-wrap {
-    float: left;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    display: flex;
-    align-items: center;
-
-    justify-content: center;
-    flex-direction: column;
-
-    /* position: relative; */
+.earth {
+    text-align: center;
+    position: absolute;
     overflow: hidden;
-    border-radius: 50%;
-    width: 40rem;
-    height: 40rem;
-    border: 4rem solid #545454;
+    z-index: -1;
+}
+
+.earth > img {
+    overflow: hidden;
+}
+body {
+    overflow: hidden;
 }
 
 .cpr {
