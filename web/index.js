@@ -36,6 +36,10 @@ const callPyProcess = async (res, args) => {
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
+    res.render("landing");
+});
+
+app.get("/test", (req, res) => {
     res.render("index");
 });
 
