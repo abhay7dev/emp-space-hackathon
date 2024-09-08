@@ -1,3 +1,5 @@
+// Initialize submission page data
+
 const fields = {
     "water": {
         slider: document.getElementById("water-avail"),
@@ -85,6 +87,7 @@ const fields = {
     }
 }
 
+// for loop which sets up all the sliders, their event listeners, and values
 for(const key of Object.keys(fields)) {
     let currVal = fields[key].slider.value;
     fields[key].slider.addEventListener("input", () => {
@@ -102,6 +105,7 @@ for(const key of Object.keys(fields)) {
     });
 }
 
+// get description for a specific slider
 function getDescription(val, descs) {
     let base = " - ";
     if(val == 0) base += descs.zero;
