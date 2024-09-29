@@ -1,4 +1,7 @@
 # TerraTest
+![image](https://github.com/user-attachments/assets/2e5e15ca-a88a-4672-a89a-aa344bf69a84)
+![image](https://github.com/user-attachments/assets/235cce72-a8fa-42f9-975b-2d8e2767a694)
+
 Planet Survivability Testing
 
 - Abhay Bhat, Jonathan Chiu, Alan Di, and Cadin Le
